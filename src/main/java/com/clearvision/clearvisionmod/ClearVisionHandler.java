@@ -9,6 +9,7 @@ import net.minecraftforge.fml.common.gameevent.TickEvent;
 import net.minecraft.client.Minecraft;
 
 public class ClearVisionHandler {
+    private final Minecraft mc = Minecraft.getMinecraft();
 
     @SubscribeEvent
     public void onFogDensity(EntityViewRenderEvent.FogDensity event) {
@@ -37,11 +38,15 @@ public class ClearVisionHandler {
 
     @SubscribeEvent
     public void onClientTick(TickEvent.ClientTickEvent event) {
-        if (event.phase == TickEvent.Phase.END) {
-            Minecraft mc = Minecraft.getMinecraft();
-            if (mc.player != null) {
-                mc.player.hurtTime = 0; // 移除受伤时的视角晃动
-            }
+        if (event.phase == TickEvent.Phase.END && mc.player != null) {
+            mc.player.hurtTime = 0; // 受伤视角基础防护
+        }
+    }
+
+    @SubscribeEvent
+    public void onRenderTick(TickEvent.RenderTickEvent event) {
+        if (mc.player != null) {
+            mc.player.hurtTime = 0; // 受伤视角渲染前二次防护
         }
     }
 }
