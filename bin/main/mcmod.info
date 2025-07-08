@@ -1,0 +1,16 @@
+[
+{
+  "modid": "clearvison",
+  "name": "ClearVison",
+  "description": "视野清晰,移除失明、反胃导致的画面扭曲，移除受伤时的画面抖动，移除在岩浆和水下时的视野遮挡",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["ExampleDude"],
+  "credits": "The Forge and FML guys, for making this example",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
